@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 
 const Col = styled.div`
   padding-right: 16px;
@@ -125,4 +125,6 @@ export const Grid = {
     margin-left: -16px;
   `,
   Col,
-}; 
+};
+
+export default Grid;

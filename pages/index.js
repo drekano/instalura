@@ -3,17 +3,21 @@ import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
 import { Text } from '../src/components/foundation/Text';
 import { Button } from '../src/components/commons/Button';
-import { Grid } from '../src/components/foundation/Grid';
+import { Grid } from '../src/components/foundation/layout/Grid';
+import { Box } from '../src/components/foundation/layout/Box';
 
 export default function Home() {
   return (
-    <div style={{
-      flex: '1',
-      display: 'flex',
-      flexWrap: 'wrap',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-    }}>
+    <Box
+      flex="1"
+      display="flex"
+      flexWrap="wrap"
+      flexDirection="column"
+      justifyContent="space-between"
+      backgroundImage="url(/images/bubbles.svg)"
+      backgroundRepeat="no-repeat"
+      backgroundPosition="bottom right"
+    >
       <Menu />
       <Grid.Container>
         <Grid.Row>
@@ -62,6 +66,7 @@ export default function Home() {
             value={{ xs: 12, md: 6 }}
           >
             <img
+              alt="Imagem de celular com páginas internas do projeto com o perfil do Cage"
               style={{ display: 'block', margin: 'auto' }}
               src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"
             />
@@ -69,6 +74,6 @@ export default function Home() {
         </Grid.Row>
       </Grid.Container>
       <Footer />
-    </div>
-  )
+    </Box>
+  );
 }
