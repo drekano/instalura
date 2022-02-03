@@ -50,7 +50,7 @@ function Modal({ isOpen, onClose, children }) {
         }
       }}
     >
-       {isOpen && <LockScroll />}
+      {isOpen && <LockScroll />}
 
       <motion.div
         variants={{
