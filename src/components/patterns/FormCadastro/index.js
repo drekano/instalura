@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import { Lottie } from '@crello/react-lottie';
 import errorAnimation from './animations/error.json';
