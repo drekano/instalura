@@ -5,7 +5,7 @@ import get from 'lodash/get';
 import { TextStyleVariantsMap } from '../../foundation/Text';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import propToStyle from '../../../theme/utils/propToStyle';
-import Link from '../Link';
+import { Link } from '../Link';
 
 const ButtonGhost = css`
   color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
