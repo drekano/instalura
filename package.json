@@ -9,11 +9,16 @@
     "custom-script": "node ./script-test.js",
     "commit": "cz",
     "test:integration:open": "cypress open",
-    "test:integration": "cypress run --headless"
+    "test:integration": "cypress run --headless",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
+    "@types/jest": "^27.4.0",
+    "eslint-plugin-jest": "^26.1.0",
     "framer-motion": "^6.2.3",
+    "jest": "^27.5.1",
     "lodash": "^4.17.20",
     "next": "^12.0.10",
     "nookies": "^2.5.2",
