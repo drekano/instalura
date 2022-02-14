@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
@@ -16,6 +17,7 @@ export default function websitePageHOC(
         <WebsitePageWrapper
           {...pageWrapperProps}
           {...props.pageWrapperProps}
+          messages={props.messages}
         >
           <PageComponent {...props} />
         </WebsitePageWrapper>
