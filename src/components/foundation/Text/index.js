@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import styled, { css } from 'styled-components';
-import propToStyle from '../../../theme/utils/propToStyle';
-import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
+import { propToStyle } from '../../../theme/utils/propToStyle';
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import Link from '../../commons/Link';
+import { WebsitePageContext } from '../../wrappers/WebsitePage/context';
 
 export const TextStyleVariantsMap = {
   paragraph1: css`
@@ -37,14 +39,40 @@ export const TextStyleVariantsMap = {
 const TextBase = styled.span`
   ${(props) => TextStyleVariantsMap[props.variant]}
   color: ${(props) => get(props.theme, `colors.${props.color}.color`)};
+
   ${propToStyle('textAlign')}
   ${propToStyle('marginBottom')}
   ${propToStyle('margin')}
 `;
 
 export default function Text({
-  tag, variant, children, ...props
+  tag,
+  variant,
+  children,
+  href,
+  cmsKey,
+  ...props
 }) {
+  const websitePageContext = React.useContext(WebsitePageContext);
+
+  const componentContent = cmsKey
+    ? websitePageContext.getCMSContent(cmsKey)
+    : children;
+
+  if (href) {
+    return (
+      <TextBase
+        as={Link}
+        href={href}
+        variant={variant}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
+      >
+        {componentContent}
+      </TextBase>
+    );
+  }
+
   return (
     <TextBase
       as={tag}
@@ -55,21 +83,25 @@ export default function Text({
       // className
       // e ai vai
     >
-      {children}
+      {componentContent}
     </TextBase>
   );
 }
 
 Text.propTypes = {
   tag: PropTypes.string,
+  href: PropTypes.string,
   variant: PropTypes.string,
   children: PropTypes.node,
+  cmsKey: PropTypes.string,
 };
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
   children: null,
+  href: '',
+  cmsKey: undefined,
 };
 
 // p
