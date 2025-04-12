@@ -23,6 +23,9 @@ export default function WebsitePageWrapper({
 }) {
   const [isModalOpen, setModalState] = React.useState(false);
 
+  // Add null check for menuProps to use default value if undefined
+  const shouldDisplayMenu = menuProps?.display ?? WebsitePageWrapper.defaultProps.menuProps.display;
+
   return (
     <WebsitePageContext.Provider
       value={{
@@ -53,7 +56,7 @@ export default function WebsitePageWrapper({
             <FormCadastro propsDoModal={propsDoModal} />
           )}
         </Modal>
-        {menuProps.display && (
+        {shouldDisplayMenu && (
           <Menu
             onCadastrarClick={() => setModalState(true)}
           />

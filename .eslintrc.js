@@ -9,6 +9,7 @@ module.exports = {
     'plugin:cypress/recommended',
     'plugin:react/recommended',
     'airbnb',
+    'plugin:@next/next/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -23,6 +24,9 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'import/prefer-default-export': 'off',
+    'no-unused-vars': 'off',
+    '@next/next/no-img-element': 'off',
+    '@next/next/no-page-custom-font': 'off',
   },
   overrides: [
     {
@@ -37,4 +41,11 @@ module.exports = {
       ...require('eslint-plugin-jest').configs.recommended,
     },
   ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
 };

@@ -1,12 +1,15 @@
 /* eslint-disable react/jsx-no-bind */
 import React from 'react';
-import { Lottie } from '@crello/react-lottie';
+// import { Lottie } from '@crello/react-lottie';
+import dynamic from 'next/dynamic';
 import errorAnimation from './animations/error.json';
 import { Button } from '../../commons/Button';
 import TextField from '../../forms/TextField';
 import { Box } from '../../foundation/layout/Box';
 import { Grid } from '../../foundation/layout/Grid';
 import Text from '../../foundation/Text';
+
+const DynamicLottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const formStates = {
   DEFAULT: 'DEFAULT',
@@ -120,7 +123,7 @@ function FormContent() {
 
       {isFormSubmited && submissionStatus === formStates.DONE && (
         <Box>
-          <Lottie
+          <DynamicLottie
             width="150px"
             height="150px"
             config={{ animationData: errorAnimation, loop: true, autoplay: true }}
@@ -134,7 +137,7 @@ function FormContent() {
           display="flex"
           justifyContent="center"
         >
-          <Lottie
+          <DynamicLottie
             width="150px"
             height="150px"
             config={{ animationData: errorAnimation, loop: true, autoplay: true }}
